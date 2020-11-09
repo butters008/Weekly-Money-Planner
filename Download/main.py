@@ -5,21 +5,31 @@
 #Declaring variables and functions
 done = "Done Editing!"
 choiceTxt = "Options: 1) Add Money. 2)Add Expense "
-dailyIncome = 0.0
-
+dailyIncome = 0
+dailyExpense = 0
+global weeklyIncome
+global weeklyExpense
 
 def checkFlag():
     return input("Continue editing?: y/n ")
 
-def addMoney():
-    return float(input("Add Income "))
+def addIncome():
+    # dailyIncome = float(input("Add Income: "))
+    # weeklyIncome += dailyIncome
+    # return
+    return float(input("Add Income: "))
 
-    
+def addExpense():
+    # dailyExpense = float(input("Add Expense: "))
+    # weeklyExpense += dailyExpense
+    # return 
+    return float(input("Add Expense: "))
+
+# def calcMoney(choice, addToTotal):
+#     weeklyIncome += addToTotal          
 
 def editDay(day):
     check = "y"
-    #weeklyAmt = float(input())
-    weeklyAmt = 0
 
     while(check == "y"):
         if(day == "m"):
@@ -27,15 +37,21 @@ def editDay(day):
             while(check == "y"):
                 choice = int(input(choiceTxt))
                 if(choice == 1):
-                    print("Adding Money")
-                    dailyIncome = addMoney()
+                    print("Adding Income")
+                    dailyIncome = addIncome()
+                    #calcMoney(dailyIncome)
+                    weeklyIncome += dailyIncome 
                 elif(choice == 2):
                     print("Adding Expense")
+                    dailyExpense = addExpense()
+                    weeklyExpense = dailyExpense
                 else:
                     print("Invalid entry")    
                 check = checkFlag()
+                # calcMoney()
             print(done + " Monday")
-            print(dailyIncome)
+            print(weeklyIncome)
+            print(weeklyExpense)
 
 def dayOfWeek():
     print("What day do you want to edit?")
@@ -54,7 +70,8 @@ def main():
     #We are going to enter the loop here to go and edit things for the week
     while(check == "y"):
         #Asking the user how much money they have at the start of the week
-        weeklyAmount = float(input("Money at the beginning of week"))
+        startingIncome = float(input("Money at the beginning of week: "))
+        weeklyIncome = startingIncome
         dayOfWeek()
         day =  input("day: ")
         editDay(day)

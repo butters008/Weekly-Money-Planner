@@ -1,4 +1,4 @@
-/*This is for the header---*/
+/* Header Template ----------------------*/
 header{
     margin: auto;
     text-align: center;
@@ -8,7 +8,7 @@ header{
     width: 90%; 
     
 }
-/*-------------------------*/
+/* General Body Template -------------------------*/
 body{
     background-color: rgb(44, 44, 44);
 }
@@ -16,4 +16,34 @@ main{
     background-color: aliceblue;
     width: 90%;
     margin: auto;
+}
+
+
+/* Money Part -----------------------------*/
+#moneyInput{
+    /* margin: auto; */
+    background-color: aquamarine;
+    text-align: center;
+    margin: auto;
+    float: right;
+    width: 40%;
+}
+
+table{
+    margin: auto;
+    /* border-color: black;
+    border: thick; */
+}
+
+.dayOfWeek th {
+    height: 50px;
+    width: 200px;
+    background-color: aquamarine;
+
+}
+
+.dailyAmount{
+    height: 50px;
+    width: 200px;
+    text-align: left;    
 }
