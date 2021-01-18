@@ -26,6 +26,37 @@ class money{
 }
 
 $userMoney = new money;
+
+if(isset($_POST["submit"])){
+
+    //Declaring and assigning variables from form
+    $recipeName = $_POST["recipeName"];
+    $cookTime = $_POST["cookTime"];
+    $recipeInstuction = $_POST["recipeInstuction"];
+
+    //testing - success assigning from form to variables
+    echo "$recipeName<br>";
+    echo "$cookTime<br>";
+    echo "$recipeInstuction<br>";
+
+    
+    $sql = "INSERT INTO recipe (recipe_name, cook_time, recipe_instructions) VALUES ($recipeName, $cookTime, $recipeInstuction);"; 
+    // mysqli_query($link, $sql);
+    
+    // Prepare the statement
+    $stmt = $link->prepare($sql);
+    // Bind the parameters
+    $stmt->bind_param('sss', $recipeName, $cookTime, $recipeInstuction);
+    //Execute the statement
+    $stmt->execute();
+
+    // Bind the results - I dont think I need to use Bind....
+    // $stmt->bind_result($rID,$rName,$rCookTime,$rInstructions,$rImage, $iID,$iName,$iMeasureType, $iQty);
+
+    echo "<p>Recipe Added to database</p>";
+
+}
+
 ?>
 <main>
 <br/><br/>

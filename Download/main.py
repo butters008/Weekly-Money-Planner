@@ -40,7 +40,7 @@ def editDay(day):
                     print("Adding Income")
                     dailyIncome = addIncome()
                     #calcMoney(dailyIncome)
-                    weeklyIncome += dailyIncome 
+                    # weeklyIncome = dailyIncome 
                 elif(choice == 2):
                     print("Adding Expense")
                     dailyExpense = addExpense()
